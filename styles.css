@@ -1,0 +1,167 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a; /* Greyish-black background */
+    color: #e0e0e0; /* Light grey text for better contrast */
+    min-height: 100vh; /* Ensure the page takes full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically on small screens */
+    width: 90%; /* Take 90% of the screen width */
+    max-width: 1200px; /* Limit maximum width for larger screens */
+    background-color: #2d2d2d; /* Dark grey container */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    overflow: hidden; /* Ensure rounded corners are visible */
+    padding: 40px; /* Increased padding for better spacing */
+    margin: 20px;
+}
+
+/* Left Section (Profile Picture) */
+.left-section {
+    display: flex;
+    align-items: flex-start; /* Align image and text to the top */
+    justify-content: center; /* Center content horizontally */
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 200px; /* Adjusted image size */
+    height: 250px; /* Portrait orientation */
+    border-radius: 15px; /* Slightly rounded corners */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border: 5px solid #444; /* Darker border around the image */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    margin-right: 30px; /* Add space between image and text */
+    align-self: flex-start; /* Align image to the top */
+}
+
+/* Right Section (Content) */
+.right-section {
+    text-align: left; /* Align text to the left */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    flex: 1; /* Take remaining space */
+}
+
+.name {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #ffffff; /* White for better contrast */
+}
+
+.about-me h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #ffffff; /* White for better contrast */
+}
+
+.about-me p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #cccccc; /* Light grey for readability */
+    max-width: 600px; /* Limit paragraph width for better readability */
+    margin: 0 0 20px 0; /* Add margin below the paragraph */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #444; /* Dark grey buttons */
+    color: #ffffff; /* White text */
+    padding: 15px 20px;
+    text-align: left; /* Align text to the left */
+    text-decoration: none;
+    border-radius: 10px; /* Rounded corners for buttons */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    font-size: 1em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+.button:hover {
+    background-color: #666; /* Lighter grey on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* YouTube Video Section */
+.video-container {
+    width: 90%; /* Match the width of the container */
+    max-width: 1200px; /* Match the max-width of the container */
+    margin: 40px auto; /* Center the video section and add spacing */
+    text-align: center; /* Center the heading */
+}
+
+.video-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffffff; /* White for better contrast */
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (720p) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove iframe border */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Side-by-side layout on larger screens */
+        padding: 60px; /* Increased padding for larger screens */
+    }
+
+    .left-section {
+        flex: 1;
+        text-align: left;
+        margin-bottom: 0;
+        margin-right: 40px; /* Add space between sections */
+        align-items: flex-start; /* Align image and text to the top */
+    }
+
+    .right-section {
+        flex: 2;
+        text-align: left;
+    }
+
+    .profile-pic {
+        width: 300px; /* Larger image size for desktop */
+        height: 350px; /* Taller portrait orientation */
+    }
+
+    .buttons {
+        flex-direction: row; /* Arrange buttons horizontally on larger screens */
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    }
+
+    .button {
+        flex: 1 1 200px; /* Allow buttons to grow and shrink */
+    }
+}
