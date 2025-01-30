@@ -3,7 +3,7 @@
         {
             "id": "basics",
             "title": "Basics of Python",
-            "description": "In this section, I learned the fundamentals of Python, including variables, data types, loops, and functions. These concepts are essential for writing clean and efficient code, which is critical for implementing AI algorithms.",
+            "description": "In this section, I learned the fundamentals of Python...",
             "keyConcepts": ["Variables", "Data Types", "Control Flow"],
             "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/python_basics.ipynb",
             "videoTutorial": "https://www.youtube.com/embed/YOUR_VIDEO_ID",
@@ -12,11 +12,11 @@
                 "Mastered basic Python syntax.",
                 "Learned how to write reusable functions."
             ]
-        },
+        }
         {
             "id": "strings",
             "title": "Strings",
-            "description": "In this section, I explored string manipulation techniques, including slicing, formatting, and built-in string methods. Understanding strings is crucial for working with text data in AI applications.",
+            "description": "In this section, I explored string manipulation techniques...",
             "keyConcepts": ["String Methods", "Slicing", "Formatting"],
             "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/strings.ipynb",
             "videoTutorial": "https://www.youtube.com/embed/YOUR_VIDEO_ID",
@@ -26,6 +26,5 @@
                 "Understood the importance of string formatting in AI workflows."
             ]
         }
-        // Add more sections as needed
     ]
 }
