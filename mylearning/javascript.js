@@ -1,6 +1,11 @@
-// Fetch data from JSON file
-fetch('mylearning/data.json')
-    .then(response => response.json())
+// Fetch data from the JSON file
+fetch('data.json') // This is where the JSON file is being fetched
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON data
+    })
     .then(data => {
         const menu = document.getElementById('menu');
         const content = document.getElementById('content');
@@ -25,23 +30,15 @@ fetch('mylearning/data.json')
         // Load the first section by default
         loadContent(data.sections[0]);
     })
-    .catch(error => console.error('Error fetching data:', error));
+    .catch(error => {
+        console.error('Error fetching data:', error);
 
-// Function to load content for a section
-function loadContent(section) {
-    const content = document.getElementById('content');
-    content.innerHTML = `
-        <h1>${section.title}</h1>
-        <p><strong>Description:</strong> ${section.description}</p>
-        <p><strong>Key Concepts:</strong> ${section.keyConcepts.join(', ')}</p>
-        <h2>Code Example</h2>
-        <iframe src="${section.codeExample}"></iframe>
-        <h2>Video Tutorial</h2>
-        <iframe src="${section.videoTutorial}"></iframe>
-        <a href="${section.downloadLink}" download class="download-btn">Download Notebook</a>
-        <h2>Takeaways</h2>
-        <ul>
-            ${section.takeaways.map(takeaway => `<li>${takeaway}</li>`).join('')}
-        </ul>
-    `;
-}
+        // Display an error message on the website
+        const content = document.getElementById('content');
+        content.innerHTML = `
+            <div style="text-align: center; color: red; margin-top: 50px;">
+                <h1>Oops! Something went wrong.</h1>
+                <p>We couldn't load the learning path. Please try again later.</p>
+            </div>
+        `;
+    });
