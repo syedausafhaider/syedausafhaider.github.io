@@ -1,0 +1,128 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Timeline Container */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+/* Navigation Indicator */
+.timeline-indicator {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.timeline-indicator div {
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-indicator div.active {
+  background: #007BFF;
+  transform: scale(1.5);
+}
+
+/* Timeline Items */
+.timeline-item {
+  width: 80%;
+  max-width: 600px;
+  margin: 40px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Hidden by default */
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.timeline-item.active {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0);
+  z-index: 2;
+  width: 90%;
+  max-width: 80vw;
+  height: 75vh;
+  padding: 40px;
+}
+
+.timeline-item:not(.active) {
+  pointer-events: none;
+  filter: blur(2px);
+  opacity: 0.3;
+}
+
+/* Typography */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007BFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Hover Effect */
+.timeline-item:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-item.active {
+    height: 85vh;
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
