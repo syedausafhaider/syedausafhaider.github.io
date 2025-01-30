@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syed Ausaf Haider - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+    <!-- Send Message Anonymously Button -->
+    <div class="send-message-button">
+        <a href="#anonymous-form" class="button">Send Message Anonymously</a>
+    </div>
+
     <!-- Main Container -->
     <div class="container">
         <!-- Left Section (Profile Picture) -->
         <div class="left-section">
             <img src="your_picture.jpg" alt="Syed Ausaf Haider" class="profile-pic">
         </div>
-
         <!-- Right Section (Content) -->
         <div class="right-section">
             <h1 class="name">Syed Ausaf Haider</h1>
@@ -43,12 +49,72 @@
             <iframe
                 width="720"
                 height="405"
-                src="https://www.youtube.com/embed/LXb3EKWsInQ?si=A6bOc6MAQkCVJSjm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" <!-- Replace YOUR_VIDEO_ID with your video's ID -->
+                src="https://www.youtube.com/embed/LXb3EKWsInQ?si=A6bOc6MAQkCVJSjm"
+                title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
             ></iframe>
         </div>
     </div>
+
+    <!-- Anonymous Form Section -->
+    <div id="anonymous-form" class="form-container">
+        <h2>Send Message Anonymously</h2>
+        <form id="telegram-form">
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="50" placeholder="Type your message here..." required></textarea><br><br>
+            
+            <!-- Google reCAPTCHA Widget -->
+            <div class="g-recaptcha" data-sitekey="6LdPzscqAAAAAJxL9gsXcCwFRMkEbbwHcfUOtf3D"></div><br>
+            
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+
+    <!-- JavaScript for Sending Messages to Telegram -->
+    <script>
+        document.getElementById('telegram-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Verify reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert('Please complete the reCAPTCHA.');
+                return;
+            }
+
+            const message = document.getElementById('message').value;
+
+            // Telegram Bot API details
+            const BOT_TOKEN = 'YOUR_BOT_TOKEN'; // Replace with your bot token
+            const CHAT_ID = 'YOUR_CHAT_ID'; // Replace with your chat ID
+
+            // Send message to Telegram
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: `New Anonymous Message:\n\n${message}`,
+                    }),
+                });
+
+                const result = await response.json();
+                if (result.ok) {
+                    alert('Message sent successfully!');
+                    document.getElementById('telegram-form').reset();
+                    grecaptcha.reset(); // Reset reCAPTCHA after successful submission
+                } else {
+                    alert('Oops! Something went wrong.');
+                    console.error(result);
+                }
+            } catch (error) {
+                alert('An error occurred while sending the message.');
+                console.error(error);
+            }
+        });
+    </script>
 </body>
 </html>
