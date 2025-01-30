@@ -1,5 +1,5 @@
 // Fetch data from JSON file
-fetch('data.json')
+fetch('mylearning/data.json')
     .then(response => response.json())
     .then(data => {
         const menu = document.getElementById('menu');
