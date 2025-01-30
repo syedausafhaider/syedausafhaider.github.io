@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syed Ausaf Haider - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Google reCAPTCHA API -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <!-- Send Message Anonymously Button -->
@@ -65,9 +63,6 @@
             <label for="message">Your Message:</label><br>
             <textarea id="message" name="message" rows="5" cols="50" placeholder="Type your message here..." required></textarea><br><br>
             
-            <!-- Google reCAPTCHA Widget -->
-            <div class="g-recaptcha" data-sitekey="6LdPzscqAAAAAJxL9gsXcCwFRMkEbbwHcfUOtf3D"></div><br>
-            
             <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
@@ -76,13 +71,6 @@
     <script>
         document.getElementById('telegram-form').addEventListener('submit', async function (e) {
             e.preventDefault();
-
-            // Verify reCAPTCHA
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                alert('Please complete the reCAPTCHA.');
-                return;
-            }
 
             const message = document.getElementById('message').value;
 
@@ -105,7 +93,6 @@
                 if (result.ok) {
                     alert('Message sent successfully!');
                     document.getElementById('telegram-form').reset();
-                    grecaptcha.reset(); // Reset reCAPTCHA after successful submission
                 } else {
                     alert('Oops! Something went wrong.');
                     console.error(result);
