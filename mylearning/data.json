@@ -6,8 +6,8 @@
             "description": "In this section, I learned the fundamentals of Python, including variables, data types, loops, and functions. These concepts are essential for writing clean and efficient code, which is critical for implementing AI algorithms.",
             "keyConcepts": ["Variables", "Data Types", "Control Flow"],
             "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/python_basics.ipynb",
-            "videoTutorial": "https://www.youtube.com/embed/YOUR_VIDEO_ID",
-            "downloadLink": "path/to/your/python_basics.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/LXb3EKWsInQ?si=A6bOc6MAQkCVJSjm", // Random Python Basics Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/python_basics.ipynb",
             "takeaways": [
                 "Mastered basic Python syntax.",
                 "Learned how to write reusable functions."
@@ -18,12 +18,90 @@
             "title": "Strings",
             "description": "In this section, I explored string manipulation techniques, including slicing, formatting, and built-in string methods. Understanding strings is crucial for working with text data in AI applications.",
             "keyConcepts": ["String Methods", "Slicing", "Formatting"],
-            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/strings.ipynb",
-            "videoTutorial": "https://www.youtube.com/embed/YOUR_VIDEO_ID",
-            "downloadLink": "path/to/your/strings.ipynb",
+            "codeExample": "https://nbviewer.jupyter.org/github/syedausafhaider/python_learning/blob/main/string_okr.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/k9TUPpGqYTo", // Random String Manipulation Tutorial
+            "downloadLink": "https://github.com/syedausafhaider/python_learning/blob/main/string_okr.ipynb",
             "takeaways": [
                 "Learned how to manipulate strings effectively.",
                 "Understood the importance of string formatting in AI workflows."
+            ]
+        },
+        {
+            "id": "lists",
+            "title": "Lists and List Comprehensions",
+            "description": "This section covers lists, a fundamental data structure in Python. I also learned about list comprehensions, which provide a concise way to create and manipulate lists.",
+            "keyConcepts": ["Lists", "List Comprehensions", "Indexing", "Slicing"],
+            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/lists.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/ohCDWZgNIU0", // Random Lists Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/lists.ipynb",
+            "takeaways": [
+                "Mastered list operations such as appending, removing, and sorting.",
+                "Learned to use list comprehensions for cleaner code."
+            ]
+        },
+        {
+            "id": "dictionaries",
+            "title": "Dictionaries",
+            "description": "Dictionaries are key-value pairs used to store and retrieve data efficiently. This section explores their usage and common operations.",
+            "keyConcepts": ["Key-Value Pairs", "Dictionary Methods", "Iteration"],
+            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/dictionaries.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/daefaLgNkw0", // Random Dictionaries Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/dictionaries.ipynb",
+            "takeaways": [
+                "Learned how to access and modify dictionary values.",
+                "Explored dictionary methods like `.keys()`, `.values()`, and `.items()`."
+            ]
+        },
+        {
+            "id": "numpy",
+            "title": "NumPy for Numerical Computing",
+            "description": "NumPy is a powerful library for numerical computing in Python. This section introduces arrays, matrix operations, and other NumPy features.",
+            "keyConcepts": ["Arrays", "Matrix Operations", "Broadcasting"],
+            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/numpy.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/Lnp3kIIcHxw", // Random NumPy Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/numpy.ipynb",
+            "takeaways": [
+                "Learned how to create and manipulate NumPy arrays.",
+                "Understood the concept of broadcasting in NumPy."
+            ]
+        },
+        {
+            "id": "pandas",
+            "title": "Pandas for Data Analysis",
+            "description": "Pandas is a library for data manipulation and analysis. This section covers DataFrames, data cleaning, and basic statistical operations.",
+            "keyConcepts": ["DataFrames", "Data Cleaning", "GroupBy"],
+            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/pandas.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/vmEHCJofslg", // Random Pandas Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/pandas.ipynb",
+            "takeaways": [
+                "Learned how to load and manipulate data using Pandas.",
+                "Explored grouping and aggregation techniques."
+            ]
+        },
+        {
+            "id": "matplotlib",
+            "title": "Matplotlib for Data Visualization",
+            "description": "Matplotlib is a plotting library for creating static, animated, and interactive visualizations. This section covers line plots, bar charts, and scatter plots.",
+            "keyConcepts": ["Line Plots", "Bar Charts", "Scatter Plots"],
+            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/matplotlib.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/uW8Qd9bR61M", // Random Matplotlib Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/matplotlib.ipynb",
+            "takeaways": [
+                "Learned how to create various types of plots.",
+                "Understood how to customize plot styles and labels."
+            ]
+        },
+        {
+            "id": "scikit-learn",
+            "title": "Scikit-learn for Machine Learning",
+            "description": "Scikit-learn is a library for machine learning in Python. This section introduces supervised and unsupervised learning algorithms.",
+            "keyConcepts": ["Supervised Learning", "Unsupervised Learning", "Model Evaluation"],
+            "codeExample": "https://nbviewer.jupyter.org/github/yourusername/yourrepo/blob/main/scikit_learn.ipynb",
+            "videoTutorial": "https://www.youtube.com/embed/0Lt9w-BxKFQ", // Random Scikit-learn Tutorial
+            "downloadLink": "https://github.com/yourusername/yourrepo/raw/main/scikit_learn.ipynb",
+            "takeaways": [
+                "Learned how to train and evaluate machine learning models.",
+                "Explored classification, regression, and clustering algorithms."
             ]
         }
     ]
