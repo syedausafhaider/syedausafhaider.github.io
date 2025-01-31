@@ -1,44 +1,89 @@
-// Fetch data from the JSON file
-fetch('data.json') // This is where the JSON file is being fetched
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the JSON data
-    })
-    .then(data => {
-        const menu = document.getElementById('menu');
-        const content = document.getElementById('content');
+// Function to load content dynamically
+function loadContent(sectionId) {
+    console.log(`Loading content for section: ${sectionId}...`);
 
-        // Populate the sidebar menu
-        data.sections.forEach((section, index) => {
-            const li = document.createElement('li');
-            li.textContent = `${index + 1}. ${section.title}`;
-            li.setAttribute('data-id', section.id);
-            if (index === 0) li.classList.add('active'); // Set first item as active
-            li.addEventListener('click', () => {
-                // Remove active class from all items
-                document.querySelectorAll('.sidebar li').forEach(item => item.classList.remove('active'));
-                // Add active class to clicked item
-                li.classList.add('active');
-                // Load content for the selected section
-                loadContent(section);
-            });
-            menu.appendChild(li);
+    // Example: Fetch JSON data from a server or API
+    fetch('https://example.com/path-to-your-json') // Replace with your actual JSON endpoint
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data loaded:', data);
+
+            // Find the section by ID and display its content
+            const section = data.sections.find(sec => sec.id === sectionId);
+            if (section) {
+                displaySectionContent(section);
+            } else {
+                console.warn(`Section with ID "${sectionId}" not found.`);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading content:', error);
         });
+}
 
-        // Load the first section by default
-        loadContent(data.sections[0]);
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
+// Function to display section content in the DOM
+function displaySectionContent(section) {
+    const contentContainer = document.getElementById('content');
+    if (!contentContainer) {
+        console.error('Content container not found in the DOM.');
+        return;
+    }
 
-        // Display an error message on the website
-        const content = document.getElementById('content');
-        content.innerHTML = `
-            <div style="text-align: center; color: red; margin-top: 50px;">
-                <h1>Oops! Something went wrong.</h1>
-                <p>We couldn't load the learning path. Please try again later.</p>
-            </div>
-        `;
+    // Clear previous content
+    contentContainer.innerHTML = '';
+
+    // Create and append new content
+    const title = document.createElement('h2');
+    title.textContent = section.title;
+
+    const description = document.createElement('p');
+    description.textContent = section.description;
+
+    const keyConcepts = document.createElement('ul');
+    keyConcepts.innerHTML = section.keyConcepts.map(concept => `<li>${concept}</li>`).join('');
+
+    const codeExampleLink = document.createElement('a');
+    codeExampleLink.href = section.codeExample;
+    codeExampleLink.textContent = 'View Code Example';
+    codeExampleLink.target = '_blank';
+
+    const videoTutorialLink = document.createElement('a');
+    videoTutorialLink.href = section.videoTutorial;
+    videoTutorialLink.textContent = 'Watch Video Tutorial';
+    videoTutorialLink.target = '_blank';
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = section.downloadLink;
+    downloadLink.textContent = 'Download Notebook';
+    downloadLink.target = '_blank';
+
+    // Append all elements to the content container
+    contentContainer.appendChild(title);
+    contentContainer.appendChild(description);
+    contentContainer.appendChild(keyConcepts);
+    contentContainer.appendChild(codeExampleLink);
+    contentContainer.appendChild(document.createElement('br'));
+    contentContainer.appendChild(videoTutorialLink);
+    contentContainer.appendChild(document.createElement('br'));
+    contentContainer.appendChild(downloadLink);
+}
+
+// Attach event listeners to <li> elements
+document.addEventListener('DOMContentLoaded', () => {
+    const listItems = document.querySelectorAll('#section-list li');
+    listItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const sectionId = this.getAttribute('data-section-id'); // Get the section ID from the data attribute
+            if (sectionId) {
+                loadContent(sectionId); // Load content for the clicked section
+            } else {
+                console.warn('No section ID found for this list item.');
+            }
+        });
     });
+});
